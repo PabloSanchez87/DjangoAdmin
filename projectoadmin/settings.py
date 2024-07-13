@@ -42,9 +42,10 @@ INSTALLED_APPS = [
     
     # APLICACIONES DE TERCEROS
     "debug_toolbar", ## DJANGO-DEBUG-TOOLBAR ->pip install django-debug-toolbar
+    "django_extensions",
     
     # APPS PROPIAS
-    'books'
+    'books',
 ]
 
 ## Middleware: Son las diferentes capas que va pasando una petición cada vez que llega a django.
