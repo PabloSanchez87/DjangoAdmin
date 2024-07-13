@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #'grappelli', # Open settings.py and add grappelli to your INSTALLED_APPS (before django.contrib.admin)    
-    
+    'suit', #you will need to add the 'suit' application to the INSTALLED_APPS setting of your Django project settings.py file.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
