@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # APLICACIONES DE TERCEROS
     "debug_toolbar", ## DJANGO-DEBUG-TOOLBAR ->pip install django-debug-toolbar
     "django_extensions",
+    'import_export',
     
     # APPS PROPIAS
     'books',

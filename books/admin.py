@@ -2,7 +2,17 @@ from django.contrib import admin
 
 from .models import Editorial, Autor, Libro
 
-# Register your models here.
+## Añadimo un resource para poder utilizar django-import-export
+from import_export import resources
+
+## Importamos para heradar ImportExportModelAdmin en la class AutorAdmin
+from import_export.admin import ImportExportModelAdmin 
+
+class AutorResource(resources.ModelResource):
+    class Meta:
+        model = Autor 
+        fields = ('nombre','apellido','fecha_nacimiento')
+        export_order = ('nombre','apellido','fecha_nacimiento')
 
 ##inlines ( tiene sentido cuando algo esta relacionado con algo a través de una Foreing key)
 ## Opcion 1: TAbularInLine, los campos a cubrir se expanden horizontalmente
@@ -30,9 +40,11 @@ class EditorialAdmin(admin.ModelAdmin):
    ]
    
 
-    
+## Hemos heredado desde ImportModelAdmin
+## y lo enlazamos con el recurso creado arriba.    
 @admin.register(Autor)
-class AutorAdmin(admin.ModelAdmin):
+class AutorAdmin(ImportExportModelAdmin):
+    resource_class = AutorResource
     list_display = ["pk",
                     "nombre",
                     "apellido",
@@ -63,3 +75,4 @@ class LibroAdmin(admin.ModelAdmin):
     filter_horizontal = ["autores"]
     
    
+
