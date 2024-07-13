@@ -18,7 +18,7 @@ class Libro(models.Model):
     idioma = models.CharField(
         max_length=2, 
         choices=LANGS_CHOICES,
-        default="ESj"
+        default="ES"
     )
     
     #portada = models.ImageField(upload_to="portadas_libros/", null=True, blank=True)
