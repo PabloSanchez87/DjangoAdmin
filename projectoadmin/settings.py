@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "debug_toolbar", ## DJANGO-DEBUG-TOOLBAR ->pip install django-debug-toolbar
     "django_extensions",
     'import_export',
+    'simple_history',
     
     # APPS PROPIAS
     'books',
@@ -61,6 +62,8 @@ MIDDLEWARE = [
     
     ## DEBUG_TOOLBAR
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    # simple_history
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'projectoadmin.urls'
