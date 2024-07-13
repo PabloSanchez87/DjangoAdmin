@@ -31,16 +31,23 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #'grappelli', # Open settings.py and add grappelli to your INSTALLED_APPS (before django.contrib.admin)
+    #'grappelli', # Open settings.py and add grappelli to your INSTALLED_APPS (before django.contrib.admin)    
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # APLICACIONES DE TERCEROS
+    "debug_toolbar", ## DJANGO-DEBUG-TOOLBAR ->pip install django-debug-toolbar
+    
+    # APPS PROPIAS
     'books'
 ]
 
+## Middleware: Son las diferentes capas que va pasando una petición cada vez que llega a django.
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,6 +56,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    ## DEBUG_TOOLBAR
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'projectoadmin.urls'
@@ -125,3 +135,12 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# The Debug Toolbar is shown only if your IP address is listed in Django’s INTERNAL_IPS setting. 
+# This means that for local development, you must add "127.0.0.1" to INTERNAL_IPS. 
+# You’ll need to create this setting if it doesn’t already exist in your settings module:
+## Para que funcione en local, el conjunto de ips desde el cual funciona.
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
