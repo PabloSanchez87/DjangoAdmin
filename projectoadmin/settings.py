@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'grappelli', # Open settings.py and add grappelli to your INSTALLED_APPS (before django.contrib.admin)
+    #'grappelli', # Open settings.py and add grappelli to your INSTALLED_APPS (before django.contrib.admin)
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
