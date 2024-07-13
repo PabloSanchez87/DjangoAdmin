@@ -145,3 +145,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+# Graph models
+# Default Settings
+# The option GRAPH_MODELS = {} can be used in the settings file to specify default options:
+GRAPH_MODELS = {
+  'all_applications': True, # Incluye todos los modelos de todas las aplicaciones
+  'group_models': True, # Agrupa los modelos en el gráfico
+}
