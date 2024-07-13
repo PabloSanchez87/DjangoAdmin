@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.shortcuts import redirect 
 
 #from django.conf.urls import include # grappelli include
 
 urlpatterns = [
    # path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls),
-   
+    path('', lambda request: redirect('admin/', permanent=True)),  # Redirigir la raíz a /admin
 ]
+
