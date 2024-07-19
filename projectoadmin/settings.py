@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent # directorio raiz.
+
+# Variable que define donde estan los templates. TENEMOS QUE AÑADIR A TEMPLATES EN QUE DIRECTORIO ESTÁN TUS PLANTILLAS
+TEMPLATES_DIR = BASE_DIR / "projectoadmin" / "templates"
 
 
 # Quick-start development settings - unsuitable for production
@@ -71,7 +74,7 @@ ROOT_URLCONF = 'projectoadmin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR,], # Le indicamos donde están los templates.
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
