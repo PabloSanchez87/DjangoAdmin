@@ -33,11 +33,11 @@ urlpatterns = [
 from .views import home_view, contact_view
 
 # importamos las vistas de autores, libros y editoriales.
-from books.views import (
-    editoriales_view, 
-    libros_view, 
-    autores_view
-)
+# from books.views import (
+#     editoriales_view, 
+#     libros_view, 
+#     autores_view
+# )
 
 # urlpatterns modificado explorando uso urls.
 urlpatterns = [
@@ -49,6 +49,7 @@ urlpatterns = [
     #path("autores/", autores_view),  
     #path("libros/", libros_view),  
     
+    # Importamos books.urls donde hemos modularizado las urls de las vistas.
     path("", include("books.urls")),
     
     path("contact/", contact_view),  
