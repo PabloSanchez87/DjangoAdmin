@@ -10,11 +10,9 @@ from .views import (
 )
 
 urlpatterns = [
-    
     path("editoriales/", editoriales_view),  
     path("autores/", autores_view),  
-    path("libros/", libros_view),  
-    
+    path("libros/", libros_view),   
 ]
 
     

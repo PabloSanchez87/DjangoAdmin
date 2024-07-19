@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 #from django.conf.urls import include # grappelli include
 from django.shortcuts import redirect 
@@ -45,10 +45,11 @@ urlpatterns = [
     path("home/", home_view),  
     
     # Esto sería una forma de hacerlo. Pero podemos modularizarlo.
-    # path("editoriales/", editoriales_view),  
-    # path("autores/", autores_view),  
-    # path("libros/", libros_view),  
+    #path("editoriales/", editoriales_view),  
+    #path("autores/", autores_view),  
+    #path("libros/", libros_view),  
     
+    path("", include("books.urls")),
     
     path("contact/", contact_view),  
     path('admin/', admin.site.urls),
