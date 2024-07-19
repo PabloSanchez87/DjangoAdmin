@@ -21,7 +21,7 @@ def editoriales_view(request):
     
     context = {
         "editoriales": editoriales,
-        "titulo": "Prueba de paso de contexto"
+        "titulo": "Editoriales. Usando contexto."
     }
     
     return render(request, 'editoriales/editoriales_list.html', context)

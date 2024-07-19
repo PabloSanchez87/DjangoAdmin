@@ -21,7 +21,7 @@ def autores_view(request):
     
     context = {
         "autores": autores,
-        "titulo": "Prueba de paso de contexto"
+        "titulo": "Autores. Usando contexto."
     }
     
     

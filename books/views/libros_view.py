@@ -19,7 +19,7 @@ def libros_view(request):
     
     context = {
         "libros": libros,
-        "titulo": "Prueba de paso de contexto"
+        "titulo": "Libros. Usando contexto."
     }
     return render(request, 'libros/libros_list.html', context)
 
