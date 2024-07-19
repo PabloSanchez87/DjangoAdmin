@@ -1,17 +1,5 @@
-from django.db import models
+from django.shortcuts import render
 
-# Modelo para Autores
-class Autor(models.Model):
-    nombre = models.CharField(max_length=200)
-    apellido = models.CharField(max_length=200)
-    fecha_nacimiento = models.DateField()
-    nacionalidad = models.CharField(max_length=100)
-    biografia = models.TextField()
-    email = models.EmailField()
-    telefono = models.CharField(max_length=20)
-    sitio_web = models.URLField()
-    premios = models.TextField()
-    #foto = models.ImageField(upload_to="autores_fotos/", null=True, blank=True)
-
-    def __str__(self):
-        return f"{self.nombre} {self.apellido}"
+# Create your views here.
+def autores_view(request):
+    return render(request, 'autores/autores_list.html')
