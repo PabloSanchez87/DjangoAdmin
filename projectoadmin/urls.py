@@ -29,20 +29,15 @@ urlpatterns = [
 ] + debug_toolbar_urls() ## Añadimos las urls de debug_toolbar
 """
 
-# Exploramos uso de URLS.
-# Importamos render
-from django.shortcuts import render
-
-# Función modo ejemplo para enlazar con la un "homve_view"
-def home_view(request):
-    return render(request, 'home.html')  # Render: Necesita un request y un template.
-                                            # Busca el template en el archivo settings.py
+# importamos las vistas.
+from .views import home_view, contact_view
 
 
 # urlpatterns modificado explorando uso urls.
 urlpatterns = [
     path("", home_view),  # raíz del sitio. 
     path("home/", home_view),  
+    path("contact/", contact_view),  
     path('admin/', admin.site.urls),
 ] + debug_toolbar_urls()
 
