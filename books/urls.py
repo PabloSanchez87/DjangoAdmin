@@ -9,10 +9,13 @@ from .views import (
     libros_view
 )
 
+#indicamos el nombre de la aplicación para poder usar el tercer parámetro del path
+app_name="books"
+
 urlpatterns = [
-    path("editoriales/", editoriales_view),  
-    path("autores/", autores_view),  
-    path("libros/", libros_view),   
+    path("editoriales/", editoriales_view, name="editorial_list"),  
+    path("autores/", autores_view, name="autor_list"),  
+    path("libros/", libros_view, name="libro_list"),   
 ]
 
     

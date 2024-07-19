@@ -41,8 +41,8 @@ from .views import home_view, contact_view
 
 # urlpatterns modificado explorando uso urls.
 urlpatterns = [
-    path("", home_view),  # raíz del sitio. 
-    path("home/", home_view),  
+    path("", home_view, name="home"),  # raíz del sitio. 
+    path("home/", home_view, name="home"),  
     
     # Esto sería una forma de hacerlo. Pero podemos modularizarlo.
     #path("editoriales/", editoriales_view),  
@@ -50,9 +50,9 @@ urlpatterns = [
     #path("libros/", libros_view),  
     
     # Importamos books.urls donde hemos modularizado las urls de las vistas.
-    path("", include("books.urls")),
+    path("books-app/", include("books.urls", namespace="books")),
     
-    path("contact/", contact_view),  
+    path("contacta-con-nosotros/", contact_view, name="contact"),  
     path('admin/', admin.site.urls),
 ] + debug_toolbar_urls()
 
