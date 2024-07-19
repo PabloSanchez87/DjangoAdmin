@@ -1,3 +1,4 @@
+# Ayuda para saber como utilizar las URLS.
 """projectoadmin URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,11 +21,32 @@ from django.urls import path
 from django.shortcuts import redirect 
 from debug_toolbar.toolbar import debug_toolbar_urls
 
-
-
+""" --> urlpatters inicial antes de explorar uso de urls.
 urlpatterns = [
    # path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls),
     path('', lambda request: redirect('admin/', permanent=True)),  # Redirigir la raíz a /admin
 ] + debug_toolbar_urls() ## Añadimos las urls de debug_toolbar
+"""
+
+# Exploramos uso de URLS.
+# Importamos render
+from django.shortcuts import render
+
+# Función modo ejemplo para enlazar con la un "homve_view"
+def home_view(request):
+    return render(request, 'home.html')  # Render: Necesita un request y un template.
+                                            # Busca el template en el archivo settings.py
+
+
+# urlpatterns modificado explorando uso urls.
+urlpatterns = [
+    path("", home_view),  # raíz del sitio. 
+    path('admin/', admin.site.urls),
+] + debug_toolbar_urls()
+
+    
+
+
+
 
