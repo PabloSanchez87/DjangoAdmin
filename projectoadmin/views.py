@@ -14,9 +14,9 @@ from django.shortcuts import render
 
 # Función modo ejemplo para enlazar con la un "home_view"
 def home_view(request):
-    return render(request, 'home.html')  # Render: Necesita un request y un template.
+    return render(request, 'general/home.html')  # Render: Necesita un request y un template.
                                             # Busca el template en el archivo settings.py
 
                                             
 def contact_view(request):
-    return render(request, 'contact.html')
+    return render(request, 'general/contact.html')
