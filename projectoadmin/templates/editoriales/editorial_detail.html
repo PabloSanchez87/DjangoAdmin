@@ -6,7 +6,7 @@
     <title>EDITORIAL</title>
 </head>
 <body>
-    <h1>{{ titulo }}</h1>
+    <h1>EDITORIAL</h1>
     <ul>
         <li><a href="{% url 'home' %}">Inicio</a></li>
         <li><a href="{% url 'books:autor_list' %}">Autores</a></li>
@@ -15,11 +15,13 @@
         <li><a href="{% url 'contact' %}">Contacto</a></li>
     </ul>
 
-    <h2>Lista de Editoriales</h2>  
-    <ul>
-        {% for editorial in editoriales %}
-        <li><a href="{% url 'books:editorial_detail' editorial.id %}">{{ editorial.nombre }}</a></li>
-        {% endfor %}
-    </ul>
+    {% if editorial %}
+        <h2>Nombre del editorial: {{ editorial.nombre }}</h2>
+        <p>ID del editorial: {{ editorial.id }}</p>
+        <p>Volver a la <a href="{% url 'books:editorial_list' %}">lista de editoriales</a></p>
+    {% else %}
+        <h2>No se ha encontrado la editorial que buscabas</h2>
+        <p>Puedes probar de nuevo en la <a href="{% url 'books:editorial_list' %}">lista de editorial</a></p>
+    {% endif %}
 </body>
 </html>
