@@ -42,6 +42,7 @@ def home_view(request):
 # urlpatterns modificado explorando uso urls.
 urlpatterns = [
     path("", home_view),  # raíz del sitio. 
+    path("home/", home_view),  
     path('admin/', admin.site.urls),
 ] + debug_toolbar_urls()
 
