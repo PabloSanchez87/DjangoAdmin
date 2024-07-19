@@ -32,11 +32,22 @@ urlpatterns = [
 # importamos las vistas.
 from .views import home_view, contact_view
 
+# importamos las vistas de autores, libros y editoriales.
+from books.views import (
+    editoriales_view, 
+    libros_view, 
+    autores_view
+)
 
 # urlpatterns modificado explorando uso urls.
 urlpatterns = [
     path("", home_view),  # raíz del sitio. 
     path("home/", home_view),  
+    
+    path("editoriales/", editoriales_view),  
+    path("autores/", autores_view),  
+    path("libros/", libros_view),  
+    
     path("contact/", contact_view),  
     path('admin/', admin.site.urls),
 ] + debug_toolbar_urls()
