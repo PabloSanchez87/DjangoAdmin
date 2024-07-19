@@ -44,9 +44,11 @@ urlpatterns = [
     path("", home_view),  # raíz del sitio. 
     path("home/", home_view),  
     
-    path("editoriales/", editoriales_view),  
-    path("autores/", autores_view),  
-    path("libros/", libros_view),  
+    # Esto sería una forma de hacerlo. Pero podemos modularizarlo.
+    # path("editoriales/", editoriales_view),  
+    # path("autores/", autores_view),  
+    # path("libros/", libros_view),  
+    
     
     path("contact/", contact_view),  
     path('admin/', admin.site.urls),
