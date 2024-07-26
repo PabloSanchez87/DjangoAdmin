@@ -7,13 +7,8 @@
 </head>
 <body>
     <h1>{% block page_title %}Default page_title{% endblock %}</h1>
-    <ul>
-        <li><a href="{% url 'home' %}">Inicio</a></li>
-        <li><a href="{% url 'books:autor_list' %}">Autores</a></li>
-        <li><a href="{% url 'books:libro_list' %}">Libros</a></li>
-        <li><a href="{% url 'books:editorial_list' %}">Editoriales</a></li>
-        <li><a href="{% url 'contact' %}">Contacto</a></li>
-    </ul>
+ 
+    {% include "_includes/_menu_principal.html" %}
 
     {% block page_content %}    {% endblock %}
 
