@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block head_title %}Homepage{% endblock %}</title>
-</head>
-<body>
-    <h1>{% block page_title %}Bienvenido a nuestra página.{% endblock %}</h1>
-    <ul>
-        <li><a href="{% url 'home' %}">Inicio</a></li>
-        <li><a href="{% url 'books:autor_list' %}">Autores</a></li>
-        <li><a href="{% url 'books:libro_list' %}">Libros</a></li>
-        <li><a href="{% url 'books:editorial_list' %}">Editoriales</a></li>
-        <li><a href="{% url 'contact' %}">Contacto</a></li>
-    </ul>
-</body>
-</html>
+{% extends "general/layout.html" %}
+
+{% block head_title %}Página HOME{% endblock %}
+
+{% block page_title %}Bienvenido a nuestra página.{% endblock %}
+
+{% block page_content %}
+    <p>Contenido de la página Home</p>
+{% endblock %}
