@@ -75,7 +75,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [TEMPLATES_DIR,], # Le indicamos donde están los templates.
-        'APP_DIRS': True,
+        'APP_DIRS': True, # Permite que busque dentro del directorio de cada app.
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
