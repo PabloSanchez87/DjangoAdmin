@@ -46,5 +46,6 @@ def libro_detail(request, id):
     for libro in libros:
         if libro['id'] == id:
             context['libro'] = libro
+            break
 
     return render(request, 'libros/libro_detail.html', context)

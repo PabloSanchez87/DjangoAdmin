@@ -50,5 +50,6 @@ def autor_detail(request, id):
     for autor in autores:
         if autor['id'] == id:
             context['autor'] = autor
+            break
 
     return render(request, 'autores/autor_detail.html', context)

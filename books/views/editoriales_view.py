@@ -48,5 +48,6 @@ def editorial_detail(request, id):
     for editorial in editoriales:
         if editorial['id'] == id:
             context['editorial'] = editorial
-
+            break
+        
     return render(request, 'editoriales/editorial_detail.html', context)
