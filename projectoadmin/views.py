@@ -21,11 +21,19 @@ def home_view(request):
 
                                             
 def contact_view(request):
+    if request.POST:
+        # Procesar los datos del formulario
+        nombre = request.POST['name']
+        email =request.POST['email']
+        mensaje =request.POST['message']
+        # Guardar los datos en la base de datos
+        print(f'El usaurio {nombre} con dirección {email} ha enviado el siguiente mensaje: {mensaje}')
+    
     return render(request, 'general/contact.html')
 
 
 def search_view(request):
-    context = {}
+    
     
    #print(request.GET['query'])  # Imprime los parámetros GET de la petición HTTP
     if request.GET:
@@ -39,5 +47,5 @@ def search_view(request):
             'libros': libros,
             'editoriales': editoriales,
             }    
-        
-    return render(request, 'general/search.html', context)
+        return render(request, 'general/search.html', context)
+    return render(request, 'general/search.html')
