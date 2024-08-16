@@ -5,6 +5,7 @@
 {% block page_title %}Contacta con nosotros{% endblock %}
 
 {% block page_content %}
+    {% comment %} 
     <form action="" method="POST">
         {% csrf_token %}
         <div>
@@ -20,7 +21,16 @@
             <textarea name="message" id="message" required></textarea>
         </div>
         <button>Enviar</button>
-    </form> 
+    </form>  
+    {% endcomment %}
+
+    <div>
+        <form action="" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit">Enviar</button>
+        </form>
+    </div>    
 
     <p>Visita mi perfil de Github: <a href="https://github.com/PabloSanchez87">Github:PabloSanchez87</a></p>
 {% endblock %}

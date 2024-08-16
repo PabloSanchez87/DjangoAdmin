@@ -6,6 +6,7 @@
 
 {% block page_content %}
     <p>Contenido de la página de búsqueda.</p>
+    {% comment %} 
     <div>
         <form action="/search" method="get">
             <h2>Busca Autores, Libros y Editoriales</h2>
@@ -17,7 +18,16 @@
                 <button>Buscar</button>
             </div>
         </form>
+    </div> 
+    {% endcomment %}
+
+    <div>
+        <form action="/search" method="get">
+            {{ form.as_p }}
+            <button type="submit">Buscar</button>
+        </form>
     </div>
+
 
     {% if request.GET %}
         <p>Resultados de la búsqueda: {{request.GET.query}}</p>
