@@ -1,23 +1,26 @@
 from django.shortcuts import render
 
+from books.models import Editorial
 # Create your views here.
 
 def editoriales_view(request):
     
-    editoriales = [
-      {
-          "id": 1,
-          "nombre": "Planeta"
-      },
-      {
-          "id": 2,
-          "nombre": "Disney"
-      },
-      {
-          "id": 3,
-          "nombre": "Espasa"
-      },
-    ]
+    # editoriales = [
+    #   {
+    #       "id": 1,
+    #       "nombre": "Planeta"
+    #   },
+    #   {
+    #       "id": 2,
+    #       "nombre": "Disney"
+    #   },
+    #   {
+    #       "id": 3,
+    #       "nombre": "Espasa"
+    #   },
+    # ]
+    
+    editoriales = Editorial.objects.all()
     
     context = {
         "editoriales": editoriales,

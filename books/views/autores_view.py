@@ -1,27 +1,31 @@
 from django.shortcuts import render
 from datetime import date
 
+from books.models import Autor
+
 # Create your views here.
 def autores_view(request):     
     ## Muestra de como pasarle datos a nuestra vista.
     # Podemos verlo con debug_tools en la pestaña plantilla.
-    autores = [
-      {
-          "id": 1,
-          "nombre": "Antonio", 
-          "f_nac": date(1980,8,1)
-      },
-      {
-          "id": 2,
-          "nombre": "Felipe",
-          "f_nac": date(1985,8,11)
-      },
-      {
-          "id": 3,
-          "nombre": "Matilde",
-          "f_nac": date(1990,9,30)
-      },
-    ]
+    # autores = [
+    #   {
+    #       "id": 1,
+    #       "nombre": "Antonio", 
+    #       "f_nac": date(1980,8,1)
+    #   },
+    #   {
+    #       "id": 2,
+    #       "nombre": "Felipe",
+    #       "f_nac": date(1985,8,11)
+    #   },
+    #   {
+    #       "id": 3,
+    #       "nombre": "Matilde",
+    #       "f_nac": date(1990,9,30)
+    #   },
+    # ]
+    
+    autores = Autor.objects.all()
     
     context = {
         "autores": autores,

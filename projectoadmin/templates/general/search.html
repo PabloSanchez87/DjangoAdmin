@@ -1,0 +1,54 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Página HOME{% endblock %}
+
+{% block page_title %}Bienvenido a nuestra página de búsqueda.{% endblock %}
+
+{% block page_content %}
+    <p>Contenido de la página de búsqueda.</p>
+    <div>
+        <form action="/search" method="get">
+            <h2>Busca Autores, Libros y Editoriales</h2>
+            <div>
+                <label for="query">Buscar:</label>
+                <input type="text" name="query" 
+                        id="query" required 
+                        value='{%if request.GET %}{{request.GET.query}}{% endif %}'>  
+                <button>Buscar</button>
+            </div>
+        </form>
+    </div>
+
+    {% if request.GET %}
+        <p>Resultados de la búsqueda: {{request.GET.query}}</p>
+        <div>
+            <h3>Resultados de la búsqueda {{request.GET.query}}:</h3>
+            <h4>Autores</h4>
+                <ul>
+                    {% for autor in autores %}
+                        <li>{{ autor }}</li>
+                    {% empty %}
+                        <li>No se han encontrado autores</li>
+                    {% endfor %}
+                </ul>
+
+            <h4>Libros</h4>
+            <ul>    
+                {% for libro in libros %}
+                    <li class="book-item">{{ libro }}</li>
+                {% empty %}
+                    <li class="no-results">No se han encontrado libros</li>
+                {% endfor %}
+            </ul>
+
+            <h4>Editoriales</h4>
+            <ul>
+                {% for editoral in editoriales %}
+                    <li class="publisher-item">{{ editoral }}</li>
+                {% empty %}
+                    <li class="no-results">No se han encontrado editoriales</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}

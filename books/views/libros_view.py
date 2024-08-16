@@ -1,21 +1,23 @@
 from django.shortcuts import render
-
+from books.models import Libro
 # Create your views here.
 def libros_view(request):
-    libros = [
-      {
-          "id": 1,
-          "nombre": "Don Quijote de la Mancha"
-      },
-      {
-          "id": 2,
-          "nombre": "Harry Potter y la piedra Filosofal"
-      },
-      {
-          "id": 3,
-          "nombre": "Clean Code"
-      },
-    ]
+    # libros = [
+    #   {
+    #       "id": 1,
+    #       "nombre": "Don Quijote de la Mancha"
+    #   },
+    #   {
+    #       "id": 2,
+    #       "nombre": "Harry Potter y la piedra Filosofal"
+    #   },
+    #   {
+    #       "id": 3,
+    #       "nombre": "Clean Code"
+    #   },
+    # ]
+    
+    libros = Libro.objects.all()
     
     context = {
         "libros": libros,

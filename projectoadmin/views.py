@@ -11,6 +11,8 @@ Las agrupación de vistas serán: autores, libros y editoriales.
 # Exploramos uso de URLS.
 # Importamos render
 from django.shortcuts import render
+from books.models import Autor, Libro, Editorial
+
 
 # Función modo ejemplo para enlazar con la un "home_view"
 def home_view(request):
@@ -20,3 +22,22 @@ def home_view(request):
                                             
 def contact_view(request):
     return render(request, 'general/contact.html')
+
+
+def search_view(request):
+    context = {}
+    
+   #print(request.GET['query'])  # Imprime los parámetros GET de la petición HTTP
+    if request.GET:
+        busqueda = request.GET['query']  # Obtenemos el parámetro GET de la petición HTTP
+        autores = Autor.objects.filter(nombre__icontains=busqueda)
+        libros = Libro.objects.filter(titulo__icontains=busqueda)
+        editoriales = Editorial.objects.filter(nombre__icontains=busqueda)
+        
+        context = {
+            'autores': autores,
+            'libros': libros,
+            'editoriales': editoriales,
+            }    
+        
+    return render(request, 'general/search.html', context)
