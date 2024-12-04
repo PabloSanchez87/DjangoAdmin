@@ -11,10 +11,11 @@ class Libro(models.Model):
     
     #idioma = models.CharField(max_length=100)
     #Creamos un CHOICES de los idiomas posibles.
-    LANGS_CHOICES = {
-        "ES": "Español",
-        "EN": "Inglés"
-    }
+    LANGS_CHOICES = [
+    ("ES", "Español"),
+    ("EN", "Inglés"),
+    ]
+    
     idioma = models.CharField(
         max_length=2, 
         choices=LANGS_CHOICES,

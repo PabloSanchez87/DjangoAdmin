@@ -1,0 +1,17 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Página de Libros{% endblock %}
+
+{% block page_title %}Nuevo Libro{% endblock %}
+
+{% block page_content %}
+    <h2>Datos del nuevo libro</h2>  
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Crear libro</button>
+    </form>
+
+    <p>Volver a la <a href="{% url 'books:libro_list' %}">lista de libros</a></p>
+{% endblock %}

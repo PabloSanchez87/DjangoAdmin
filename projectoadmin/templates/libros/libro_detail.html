@@ -6,8 +6,23 @@
 
 {% block page_content %}
     {% if libro %}
-        <h2>Nombre del libro: {{ libro.nombre }}</h2>
-        <p>ID del libro: {{ libro.id }}</p>
+        <h2>Nombre del libro: {{ libro.titulo }}</h2>
+        <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
+        <p><strong>Fecha de publicación:</strong> {{ libro.fecha_publicacion | date:"d/m/Y" }}</p>
+        <p><strong>Número de páginas:</strong> {{ libro.numero_paginas }}</p>
+        <p><strong>Idioma:</strong> {{ libro.idioma }}</p>
+        <p><strong>Descripción:</strong> {{ libro.descripcion }}</p>
+        <p><strong>Editorial:</strong> {{ libro.editorial }}</p>
+        <p><strong>Autores:</strong> 
+            <ul>
+                {% for autor in libro.autores.all %}
+                    <li>{{ autor.nombre }}</li>
+                {% endfor %}
+            </ul>    
+        </p>
+        <p><strong>Genero:</strong> {{ libro.genero }}</p>
+        <p><strong>Precio:</strong> {{ libro.precio }}</p>
+        
         <p>Volver a la <a href="{% url 'books:libro_list' %}">lista de libros</a></p>
     {% else %}
         <h2>No se ha encontrado el libro que buscabas</h2>
