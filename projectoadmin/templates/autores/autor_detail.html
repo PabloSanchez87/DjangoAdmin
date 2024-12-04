@@ -8,7 +8,14 @@
     {% if autor %}
         <h2>Nombre del autor: {{ autor.nombre }}</h2>
         <p>ID del Autor: {{ autor.id }}</p>
-        <p>Fecha de naciemiento: {{ autor.f_nac | date:"d/m/Y" }}</p>
+        <p>Fecha de naciemiento: {{ autor.fecha_nacimiento | date:"d/m/Y" }}</p>
+        <p>Nacionalidad: {{ autor.nacionalidad }}</p>
+        <p>Biografía: {{ autor.biografia }}</p>
+        <p>Email: {{ autor.email }}</p>
+        <p>Telefono: {{ autor.telefono }}</p>
+        <p>Sitio web: {{ autor.sitio_web }}</p>
+        <p>Premios: {{ autor.premios }}</p>
+        
         <p>Volver a la <a href="{% url 'books:autor_list' %}">lista de autores</a></p>
     {% else %}
         <h2>No se ha encontrado el autor que buscabas</h2>
