@@ -11,4 +11,9 @@
         <li><a href="{% url 'books:autor_detail' autor.id %}">{{ autor.nombre }}</a></li>
         {% endfor %}
     </ul>
+
+    <h2>Acciones</h2>
+    <ul>
+        <li><a href="{% url 'books:autor_create' %}">Nuevo autor</a></li>
+    </ul>
 {% endblock %}
