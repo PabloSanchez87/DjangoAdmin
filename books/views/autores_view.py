@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from datetime import date
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.shortcuts import get_object_or_404
 
 from books.models import Autor
+from books.forms import AutorModelFormCreate
 
 # Create your views here.
 def autores_view(request): 
@@ -26,18 +29,19 @@ def autores_view(request):
     #   },
     # ]
     '''    
-    autores = Autor.objects.all()
+    autores = get_object_or_404(Autor, pk=id)
     
     context = {
         "autores": autores,
-        "titulo": "Autores. Usando contexto."
     }
     
     
     return render(request, 'autores/autores_list.html', context)
 
+
 # Como está esperando un id para mostrar la lista que corresponde, tiene que pasarse como parámetro.
 def autor_detail(request, id):
+    '''
     autores = [
       {
           "id": 1,
@@ -55,13 +59,28 @@ def autor_detail(request, id):
           "f_nac": date(1990,9,30)
       },
     ]
+    '''
 
     context = {
-        "autor": None,
+        "autor": Autor,
     }
-    for autor in autores:
-        if autor['id'] == id:
-            context['autor'] = autor
             
-
     return render(request, 'autores/autor_detail.html', context)
+
+
+def autor_create(request):
+    if request.POST:
+        form = AutorModelFormCreate(request.POST)
+        if form.is_valid():
+            nuevo_autor = form.save()
+            
+            # Redireccionamos a al vista detalle de la autor creada
+            return redirect(reverse('books:autor_detail', kwargs={'id': nuevo_autor.pk}))
+    else: 
+        form = AutorModelFormCreate()
+        
+    context = {
+        "form": form,
+    }
+        
+    return render(request, 'autores/autor_create.html',context=context)

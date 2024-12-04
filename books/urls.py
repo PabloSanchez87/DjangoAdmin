@@ -10,6 +10,7 @@ from .views import (
     libro_detail,
     libros_view,
     editorial_create,
+    autor_create,
 )
 
 #indicamos el nombre de la aplicación para poder usar el tercer parámetro del path
@@ -20,7 +21,8 @@ urlpatterns = [
     path("editoriales/create", editorial_create, name="editorial_create"),
     path("editoriales/<int:id>/", editorial_detail, name="editorial_detail"),  
    
-    path("autores/", autores_view, name="autor_list"),  
+    path("autores/", autores_view, name="autor_list"),
+    path("autores/create", autor_create, name="autor_create"),
     path("autores/<int:id>/", autor_detail, name="autor_detail"),  # Solo machea con autores/# siendo # un número.
     
     path("libros/", libros_view, name="libro_list"),   
