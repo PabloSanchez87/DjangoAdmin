@@ -22,6 +22,11 @@ class AutorModelFormCreate(ModelForm):
             'premios',
         ]
         
+        widgets = {
+            'fecha_nacimiento': forms.DateInput(attrs={'type': 'date'}),
+        }
+        
+        
     def clean_nombre(self):
         nombre = self.cleaned_data['nombre']
         if len(nombre) < 5:

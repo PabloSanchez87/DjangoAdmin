@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from books.models import Autor
 from books.forms import AutorModelFormCreate
 
+
 # Create your views here.
 def autores_view(request): 
     '''
@@ -29,11 +30,11 @@ def autores_view(request):
     #   },
     # ]
     '''    
-    autores = get_object_or_404(Autor, pk=id)
+    autores = Autor.objects.all()  # Obtén todos los objetos del modelo Autor
     
     context = {
         "autores": autores,
-    }
+        }
     
     
     return render(request, 'autores/autores_list.html', context)
@@ -60,9 +61,10 @@ def autor_detail(request, id):
       },
     ]
     '''
+    autor = get_object_or_404(Autor, pk=id)
 
     context = {
-        "autor": Autor,
+        "autor": autor,
     }
             
     return render(request, 'autores/autor_detail.html', context)
