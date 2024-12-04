@@ -4,7 +4,8 @@ from datetime import date
 from books.models import Autor
 
 # Create your views here.
-def autores_view(request):     
+def autores_view(request): 
+    '''
     ## Muestra de como pasarle datos a nuestra vista.
     # Podemos verlo con debug_tools en la pestaña plantilla.
     # autores = [
@@ -24,7 +25,7 @@ def autores_view(request):
     #       "f_nac": date(1990,9,30)
     #   },
     # ]
-    
+    '''    
     autores = Autor.objects.all()
     
     context = {

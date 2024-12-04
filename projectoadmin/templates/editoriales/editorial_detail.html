@@ -5,12 +5,23 @@
 {% block page_title %}Editorial{% endblock %}
 
 {% block page_content %}
+
     {% if editorial %}
         <h2>Nombre del editorial: {{ editorial.nombre }}</h2>
         <p>ID del editorial: {{ editorial.id }}</p>
+        <p>Dirección: {{ editorial.direccion }}</p>
+        <p>Ciudad: {{ editorial.ciudad }}</p>
+        <p>Estado: {{ editorial.estado }}</p>
+        <p>Pais: {{ editorial.pais }}</p>
+        <p>Código postal: {{ editorial.codigo_postal }}</p>
+        <p>Teléfono: {{ editorial.telefono }}</p>
+        <p>Email: {{ editorial.email }}</p>
+        <p>Sitio web: {{ editorial.sitio_web }}</p>
+        <p>Fecha de fundación: {{ editorial.fecha_fundacion | date:"d/m/Y" }}</p>
         <p>Volver a la <a href="{% url 'books:editorial_list' %}">lista de editoriales</a></p>
     {% else %}
         <h2>No se ha encontrado la editorial que buscabas</h2>
         <p>Puedes probar de nuevo en la <a href="{% url 'books:editorial_list' %}">lista de editorial</a></p>
     {% endif %}
+
 {% endblock %}

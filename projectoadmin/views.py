@@ -20,7 +20,7 @@ def home_view(request):
     return render(request, 'general/home.html')  # Render: Necesita un request y un template.
                                             # Busca el template en el archivo settings.py
 
-                                            
+'''                                
 # def contact_view(request):
 #     if request.POST:
 #         # Procesar los datos del formulario
@@ -31,8 +31,7 @@ def home_view(request):
 #         print(f'El usaurio {nombre} con dirección {email} ha enviado el siguiente mensaje: {mensaje}')
     
 #     return render(request, 'general/contact.html')
-
-
+'''
 
 def contact_view(request):
     if request.method == 'POST':
@@ -62,11 +61,7 @@ def contact_view(request):
 
     return render(request, 'general/contact.html', context)
 
-
-
-
-
-
+'''
 # def search_view(request):
 #    #print(request.GET['query'])  # Imprime los parámetros GET de la petición HTTP
 #     if request.GET:
@@ -82,8 +77,7 @@ def contact_view(request):
 #             }    
 #         return render(request, 'general/search.html', context)
 #     return render(request, 'general/search.html')
-
-
+'''
 
 def search_view(request):
     form = SearchForm(request.GET or None)  # Inicializa el formulario con GET data si está presente

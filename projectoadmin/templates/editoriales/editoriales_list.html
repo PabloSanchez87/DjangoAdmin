@@ -11,4 +11,9 @@
         <li><a href="{% url 'books:editorial_detail' editorial.id %}">{{ editorial.nombre }}</a></li>
         {% endfor %}
     </ul>
+
+    <h2>Acciones</h2>
+    <ul>
+        <li><a href="{% url 'books:editorial_create' %}">Nueva editorial</a></li>
+    </ul>
 {% endblock %}

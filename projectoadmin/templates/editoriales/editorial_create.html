@@ -1,0 +1,17 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Página de editoriales{% endblock %}
+
+{% block page_title %}Nueva Editorial{% endblock %}
+
+{% block page_content %}
+
+    <h2> Datos de la nueva editorial</h2>
+    <form action= "" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Crear editorial</button>
+    </form>
+
+    <p>Volver a la <a href="{% url 'books:editorial_list' %}">lista de editoriales</a></p>
+{% endblock %}
